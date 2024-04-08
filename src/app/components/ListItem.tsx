@@ -77,7 +77,16 @@ export const ListItem = ({ item }: { item: ListItemProps }) => {
           <Typography>Height: {item.height}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{JSON.stringify(item.messages)}</Typography>
+          <Typography>Messages:</Typography>
+          <div className="max-h-[400px] overflow-auto font-mono max-w-[1200px] bg-slate-300 p-2 rounded-md">
+            <pre className="text-xs">
+              {JSON.stringify(item.messages, null, 2)}
+            </pre>
+          </div>
+          <Typography>Logs:</Typography>
+          <div className="max-h-[400px] overflow-auto font-mono max-w-[1200px] bg-slate-300 p-2 rounded-md">
+            <pre className="text-xs">{JSON.stringify(item.logs, null, 2)}</pre>
+          </div>
         </AccordionDetails>
       </Accordion>
     </div>
