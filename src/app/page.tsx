@@ -9,19 +9,19 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 export default function Home() {
-  const [address, setAddress] = useState("");
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAddress(event.target.value as string);
-  };
-
   /*   Provided sample options */
-  const options = [
+  const OPTIONS = [
     "cudos1nj49l56x7sss5hqyvfmctxr3mq64whg273g3x5",
     "cudos1c3qgr4df6u3awsz6rqwkxcpsef7aau7p23pew5",
     "cudos1genudzpvqe2t9k64xwueua35a8kfvl3fc6uc62",
     "cudos1qy475hk07ngugq7dlwg94yjw0yye7yjl8djrsn",
   ];
+
+  const [address, setAddress] = useState(OPTIONS[0]);
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAddress(event.target.value as string);
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -38,7 +38,7 @@ export default function Home() {
                 label="Address"
                 onChange={handleChange}
               >
-                {options.map((option, index) => (
+                {OPTIONS.map((option, index) => (
                   <MenuItem value={option} key={index}>
                     {option}
                   </MenuItem>

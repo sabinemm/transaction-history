@@ -64,6 +64,7 @@ export const ListItem = ({ item }: { item: ListItemProps }) => {
       setExpanded(newExpanded ? panel : false);
     };
 
+  /*  TODO: Better styling, add more details, icons, move arrow to right side, status with icon and colors, responsiveness, overflows etc */
   return (
     <div>
       <Accordion
