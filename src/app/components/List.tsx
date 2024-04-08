@@ -43,7 +43,7 @@ export const ItemsList = ({ address }: { address: string }) => {
   if (data) {
     return (
       <List
-        sx={{ width: "100%", maxWidth: 360 }}
+        sx={{ width: "100%", maxWidth: 1200 }}
         component="nav"
         aria-labelledby="nested-list-subheader"
         subheader={
