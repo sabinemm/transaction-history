@@ -46,11 +46,6 @@ export const ItemsList = ({ address }: { address: string }) => {
         sx={{ width: "100%", maxWidth: 1200 }}
         component="nav"
         aria-labelledby="nested-list-subheader"
-        subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-            Address: {address}
-          </ListSubheader>
-        }
       >
         {/* TODO: types */}
         {/*  @ts-ignore */}
