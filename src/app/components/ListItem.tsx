@@ -64,8 +64,6 @@ export const ListItem = ({ item }: { item: ListItemProps }) => {
       setExpanded(newExpanded ? panel : false);
     };
 
-  console.log(item);
-
   return (
     <div>
       <Accordion
