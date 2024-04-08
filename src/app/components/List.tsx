@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-export const List = () => {
+export const List = ({ address }: { address: string }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export const List = () => {
         limit: 51,
         offset: 0,
         types: "{}",
-        address: "{cudos178qftghhlhgqphg8r3jssjnf4rggupxqfjk0ld}",
+        address: `{${address}}`,
       },
       query:
         'query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint = 0, $types: _text = "{}") {\n  messagesByAddress: messages_by_address(\n    args: {addresses: $address, types: $types, limit: $limit, offset: $offset}\n  ) {\n    transaction {\n      height\n      hash\n      success\n      messages\n      logs\n      block {\n        height\n        timestamp\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n',
@@ -33,11 +33,11 @@ export const List = () => {
     };
 
     fetchData();
-  }, []);
+  }, [address]);
 
   if (data) {
     return <div>data</div>;
   } else {
-    return null;
+    return <div>Please enter a valid address</div>;
   }
 };
