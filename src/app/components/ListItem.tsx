@@ -70,18 +70,18 @@ export const ListItem = ({ item }: { item: ListItemProps }) => {
         expanded={expanded === item.hash}
         onChange={handleChange(item.hash)}
       >
-        <AccordionSummary aria-controls="panel1d-content" id={item.hash}>
-          <Typography>Hash: {item.hash}</Typography>
+        <AccordionSummary aria-controls="panel-content" id={item.hash}>
+          <Typography className="uppercase pr-3">Hash: {item.hash}</Typography>
           <Typography>Height: {item.height}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>Messages:</Typography>
+          <Typography className="pb-2 uppercase">Messages:</Typography>
           <div className="max-h-[400px] overflow-auto font-mono max-w-[1200px] bg-slate-300 p-2 rounded-md">
             <pre className="text-xs">
               {JSON.stringify(item.messages, null, 2)}
             </pre>
           </div>
-          <Typography>Logs:</Typography>
+          <Typography className="py-2 uppercase">Logs:</Typography>
           <div className="max-h-[400px] overflow-auto font-mono max-w-[1200px] bg-slate-300 p-2 rounded-md">
             <pre className="text-xs">{JSON.stringify(item.logs, null, 2)}</pre>
           </div>

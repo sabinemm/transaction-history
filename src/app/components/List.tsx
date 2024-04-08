@@ -64,7 +64,8 @@ export const ItemsList = ({ address }: { address: string }) => {
     );
   } else {
     return (
-      <div className="flex w-full h-full align-middle m-auto">
+      /* TODO: center, add message in case of error */
+      <div className="m-12">
         <CircularProgress />
       </div>
     );
