@@ -1,7 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-export const List = ({ address }: { address: string }) => {
+import ListSubheader from "@mui/material/ListSubheader";
+import List from "@mui/material/List";
+
+import { ListItem, ListItemProps } from "./ListItem";
+
+export const ItemsList = ({ address }: { address: string }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -36,7 +41,24 @@ export const List = ({ address }: { address: string }) => {
   }, [address]);
 
   if (data) {
-    return <div>data</div>;
+    return (
+      <List
+        sx={{ width: "100%", maxWidth: 360 }}
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader component="div" id="nested-list-subheader">
+            Address: {address}
+          </ListSubheader>
+        }
+      >
+        {/* TODO: types */}
+        {/*  @ts-ignore */}
+        {data?.map((item: { transaction: ListItemProps }, i: React.Key) => (
+          <ListItem key={i} item={item.transaction} />
+        ))}
+      </List>
+    );
   } else {
     return <div>Please enter a valid address</div>;
   }
